@@ -1,4 +1,4 @@
-package com.tradecard.rest;
+package com.lrajeew.rest;
 
 import com.lrajeew.util.ApiConsatants;
 import com.sun.jersey.api.client.Client;
