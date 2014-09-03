@@ -31,19 +31,19 @@ public class AttendeesByIdAPI {
 		return apiCall;
 	}
 	
-	public void queryDefaultResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
+	public ClientResponse queryDefaultResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
 		ClientResponse response = query(authData, requestVO, ResponseType.DEFAULT);
-		LOGGER.info("queryDefaultResponse" + response.getEntity(String.class));
+		return response;
 	}
 	
-	public void queryLiteResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
+	public ClientResponse queryLiteResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
 		ClientResponse response = query(authData, requestVO, ResponseType.LITE);
-		LOGGER.info("queryLiteResponse" + response.getEntity(String.class));
+		return response;
 	}
 	
-	public void queryFullResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
+	public ClientResponse queryFullResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
 		ClientResponse response = query(authData, requestVO, ResponseType.FULL);
-		LOGGER.info("queryFullResponse" + response.getEntity(String.class));
+		return response;
 	}
 	
 	public ClientResponse query(AuthenticationVO authData, AttendeeRequestVO requestVO, ResponseType responseType) throws IOException{

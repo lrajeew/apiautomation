@@ -51,6 +51,9 @@ public class JsonUtil {
 	}
 	
 	public static String getJsonPrettyString(String input) throws JsonParseException, JsonMappingException, IOException{
+		if(input == null || input.trim().length() == 0){
+			return "";
+		}
 		ObjectMapper mapper = new ObjectMapper();
 		Object json = mapper.readValue(input, Object.class);
 		String indented = mapper.defaultPrettyPrintingWriter().writeValueAsString(json);

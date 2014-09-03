@@ -8,19 +8,24 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.lrajeew.api.BaseAttendeesAPI;
+import com.lrajeew.api.BaseAPI;
 import com.lrajeew.api.all.AttendeeTopicByTopicKeyAPI;
 import com.lrajeew.api.all.AttendeeTopicDeleteAPI;
+import com.lrajeew.api.attendee.AttendeeByEmailAPI;
 import com.lrajeew.api.atus.AttendeeTopicUserStatsAPI;
+import com.lrajeew.json.util.JsonUtil;
 import com.lrajeew.model.AttendeeRequestVO;
 import com.lrajeew.model.AuthenticationVO;
 import com.lrajeew.model.ClientAuthenticationVO;
+import com.lrajeew.model.RegressionVO;
+import com.lrajeew.util.ApiConsatants;
 import com.lrajeew.util.FileHandler;
+import com.sun.jersey.api.client.ClientResponse;
 
 public class AttendeeTopicUserStatsTest {
 
 	private static Logger LOGGER = Logger.getLogger(AttendeeTopicUserStatsTest.class);
-	static BaseAttendeesAPI instance ;
+	static BaseAPI instance ;
 	
 	static{
 		instance = AttendeeTopicUserStatsAPI.getInstance();
@@ -30,7 +35,8 @@ public class AttendeeTopicUserStatsTest {
 	private AttendeeRequestVO requestData;
 
 	private static String DATA_FILE = "C:\\DWork\\Data\\AttendeesAPIData.txt";
-	private static String FILE_NAME_PREFIX = "AttendeesAPI";
+	private static String FILE_NAME_PREFIX = "AttendeeTopicUserStats";
+	String filePath = "";
 
 	private void loadDataFromFile() throws IOException {
 
@@ -40,11 +46,7 @@ public class AttendeeTopicUserStatsTest {
 		authData.setClientSecret(properties
 				.getProperty(ClientAuthenticationVO.CLIENT_SECRET));
 		authData.setGrantType(properties
-				.getProperty(ClientAuthenticationVO.GRANT_TYPE));
-		authData.setUsername(properties
-				.getProperty(ClientAuthenticationVO.USERNAME));
-		authData.setPassword(properties
-				.getProperty(ClientAuthenticationVO.PASSWORD));
+				.getProperty(AuthenticationVO.GRANT_TYPE));
 
 		requestData = new AttendeeRequestVO();
 		requestData.setEventId(properties
@@ -60,22 +62,37 @@ public class AttendeeTopicUserStatsTest {
 		} catch (IOException e) {
 			throw e;
 		}
+		RegressionVO regression = RegressionVO.getInstance();
+		filePath = regression.getRegressionResultsPath()+ FILE_NAME_PREFIX;
 	}
 
 	@Test
 	public void testDefultResponse() throws IOException {
-		instance.queryDefaultResponse(authData,
+		ClientResponse response =  instance.queryDefaultResponse(authData,
 				requestData);
+		String responseBody = response.getEntity(String.class);
+		LOGGER.info(responseBody);
+		filePath+= ApiConsatants.DEFAULT_FILE;
+		FileHandler.writeToFile(filePath, JsonUtil.getJsonPrettyString(responseBody));
 	}
 
 	@Test
 	public void testLiteResponse() throws IOException {
-		instance.queryLiteResponse(authData, requestData);
+		ClientResponse response = instance.queryLiteResponse(authData, requestData);
+		String responseBody = response.getEntity(String.class);
+		LOGGER.info(responseBody);
+		filePath+= ApiConsatants.LITE_FILE;
+		FileHandler.writeToFile(filePath, JsonUtil.getJsonPrettyString(responseBody));
 	}
 
 	@Test
 	public void testFullResponse() throws IOException {
-		instance.queryFullResponse(authData, requestData);
+		ClientResponse response = instance.queryFullResponse(authData, requestData);
+		String responseBody = response.getEntity(String.class);
+		LOGGER.info(responseBody);
+		filePath+= ApiConsatants.FULL_FILE;
+		FileHandler.writeToFile(filePath, JsonUtil.getJsonPrettyString(responseBody));
 	}
+
 
 }

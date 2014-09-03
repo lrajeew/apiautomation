@@ -9,25 +9,25 @@ import com.lrajeew.model.AuthenticationVO;
 import com.lrajeew.model.ResponseType;
 import com.sun.jersey.api.client.ClientResponse;
 
-public abstract class BaseAttendeesAPI {
+public abstract class BaseAPI {
 	
-	private static Logger LOGGER = Logger.getLogger(BaseAttendeesAPI.class);
+	private static Logger LOGGER = Logger.getLogger(BaseAPI.class);
 	
 	public abstract ClientResponse query(AuthenticationVO authData, AttendeeRequestVO requestVO, ResponseType responseType) throws IOException;
 	
-	public void queryDefaultResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
+	public ClientResponse queryDefaultResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
 		ClientResponse response = query(authData, requestVO, ResponseType.DEFAULT);
-		LOGGER.info("queryDefaultResponse" + response.getEntity(String.class));
+		return response;
 	}
 	
-	public void queryLiteResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
+	public ClientResponse queryLiteResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
 		ClientResponse response = query(authData, requestVO, ResponseType.LITE);
-		LOGGER.info("queryLiteResponse" + response.getEntity(String.class));
+		return response;
 	}
 	
-	public void queryFullResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
+	public ClientResponse queryFullResponse(AuthenticationVO authData, AttendeeRequestVO requestVO) throws IOException{
 		ClientResponse response = query(authData, requestVO, ResponseType.FULL);
-		LOGGER.info("queryFullResponse" + response.getEntity(String.class));
+		return response;
 	}
 	
 	

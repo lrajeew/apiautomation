@@ -1,0 +1,24 @@
+{
+  "createTimestamp" : 1317348889000,
+  "updateTimestamp" : 1407274717000,
+  "eventKey" : "vivacon",
+  "eventProfile" : {
+    "eventName" : "vivacon",
+    "description" : "",
+    "registrationUrl" : null,
+    "cityName" : "Hotlanta",
+    "venueName" : "",
+    "start" : {
+      "date" : null
+    },
+    "end" : {
+      "date" : null
+    },
+    "webMenuLogoImgUrl" : "",
+    "webIconImgUrl" : "",
+    "webCoverImgUrl" : "",
+    "mobCoverImgUrl" : "",
+    "mobIconImgUrl" : ""
+  },
+  "stream" : 8
+}

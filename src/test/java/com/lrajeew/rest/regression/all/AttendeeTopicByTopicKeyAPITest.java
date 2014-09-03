@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.lrajeew.api.BaseAttendeesAPI;
+import com.lrajeew.api.BaseAPI;
 import com.lrajeew.api.all.AttendeeTopicByTopicKeyAPI;
 import com.lrajeew.model.AttendeeRequestVO;
 import com.lrajeew.model.AuthenticationVO;
@@ -17,7 +17,7 @@ import com.lrajeew.util.FileHandler;
 public class AttendeeTopicByTopicKeyAPITest {
 
 	private static Logger LOGGER = Logger.getLogger(AttendeeTopicByTopicKeyAPITest.class);
-	static BaseAttendeesAPI instance ;
+	static BaseAPI instance ;
 	
 	static{
 		instance = AttendeeTopicByTopicKeyAPI.getInstance();

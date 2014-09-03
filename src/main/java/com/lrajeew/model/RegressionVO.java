@@ -1,5 +1,11 @@
 package com.lrajeew.model;
 
+import java.io.IOException;
+import java.util.Properties;
+
+import com.lrajeew.rest.APITestConstants;
+import com.lrajeew.util.FileHandler;
+
 public class RegressionVO {
 	
 	public static final String REGRESSION_NAME = "regression.name";
@@ -15,6 +21,25 @@ public class RegressionVO {
 	private String regressionDataPath;
 	private String regressionResultsPath;
 	private String previousRegressionResultsPath;
+	
+	private static RegressionVO instance;
+	
+	private RegressionVO(){
+		
+	}
+	
+	public static RegressionVO getInstance() throws IOException{
+		if(instance != null){
+			return instance;
+		}
+		else{
+			Properties properties = FileHandler.readPropertyFile(APITestConstants.REGRESSION_FILE_PATH);
+			instance = new RegressionVO();
+			instance.setRegressionResultsPath(properties.getProperty(RegressionVO.REGRESSION_RESULTS_PATH));
+			instance.setRegressionName(properties.getProperty(RegressionVO.REGRESSION_NAME));
+			return instance;
+		}
+	}
 	
 	
 	public String getRegressionName() {

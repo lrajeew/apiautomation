@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
 
 import com.lrajeew.api.Authenticator;
-import com.lrajeew.api.BaseAttendeesAPI;
+import com.lrajeew.api.BaseAPI;
 import com.lrajeew.api.attendee.AttendeeByEmailAPI;
 import com.lrajeew.model.AttendeeRequestVO;
 import com.lrajeew.model.AuthenticationResponseVO;
@@ -18,7 +18,7 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-public class UserPassworgForgotAPI extends BaseAttendeesAPI {
+public class UserPassworgForgotAPI extends BaseAPI {
 	private static UserPassworgForgotAPI apiCall;
 
 	private UserPassworgForgotAPI() {
@@ -37,7 +37,6 @@ public class UserPassworgForgotAPI extends BaseAttendeesAPI {
 			AttendeeRequestVO requestVO, ResponseType responseType)
 			throws IOException {
 		String body ="{\"emailAddress\":\"lahirua@live.com\"}";
-		String jsonBody = "{\"emailAddress\"" +":"+ "\"lahirua@live.com\"}";
 		AuthenticationResponseVO authResponse = Authenticator
 				.authenticate(authData);
 		String apiEndpoint = "http://dev.mob.vivastream.com/v2/forgot-password?emailAddress=lahirua@live.com";

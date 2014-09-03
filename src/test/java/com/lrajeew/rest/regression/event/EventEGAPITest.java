@@ -8,69 +8,33 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.lrajeew.api.BaseAttendeesAPI;
+import com.lrajeew.api.BaseAPI;
 import com.lrajeew.api.all.AttendeeTopicByTopicKeyAPI;
 import com.lrajeew.api.all.AttendeeTopicDeleteAPI;
 import com.lrajeew.api.atus.AttendeeTopicUserStatsAPI;
 import com.lrajeew.api.event.EventEGAPI;
+import com.lrajeew.json.util.JsonUtil;
 import com.lrajeew.model.AttendeeRequestVO;
 import com.lrajeew.model.AuthenticationVO;
 import com.lrajeew.model.ClientAuthenticationVO;
+import com.lrajeew.rest.regression.all.APITest;
+import com.lrajeew.util.APIAuthenticatorDataCreator;
+import com.lrajeew.util.ApiConsatants;
 import com.lrajeew.util.FileHandler;
+import com.sun.jersey.api.client.ClientResponse;
 
-public class EventEGAPITest {
+public class EventEGAPITest extends APITest{
 
 	private static Logger LOGGER = Logger.getLogger(EventEGAPITest.class);
-	static BaseAttendeesAPI instance ;
 	
-	static{
+	private static String FILE_NAME_PREFIX = "EventEGAPI";
+
+	@Override
+	public void loadDataFromFile() throws IOException {
+		super.loadDataFromFile();
 		instance = EventEGAPI.getInstance();
+		this.filePath += FILE_NAME_PREFIX;	
+		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
 	}
-
-	private AuthenticationVO authData;
-	private AttendeeRequestVO requestData;
-
-	private static String DATA_FILE = "C:\\DWork\\Data\\AttendeesAPIData.txt";
-	private static String FILE_NAME_PREFIX = "AttendeesAPI";
-
-	private void loadDataFromFile() throws IOException {
-
-		Properties properties = FileHandler.readPropertyFile(DATA_FILE);
-		authData = new AuthenticationVO();
-		authData.setClientId(properties.getProperty(AuthenticationVO.CLIENT_ID));
-		authData.setClientSecret(properties
-				.getProperty(AuthenticationVO.CLIENT_SECRET));
-		authData.setGrantType(properties
-				.getProperty(AuthenticationVO.GRANT_TYPE));
-
-		requestData = new AttendeeRequestVO();
-		requestData.setEventId(AttendeeRequestVO.EVENT_ID);
-
-	}
-
-	@Before
-	public void init() throws IOException {
-		try {
-			loadDataFromFile();
-		} catch (IOException e) {
-			throw e;
-		}
-	}
-
-	@Test
-	public void testDefultResponse() throws IOException {
-		instance.queryDefaultResponse(authData,
-				requestData);
-	}
-
-	@Test
-	public void testLiteResponse() throws IOException {
-		instance.queryLiteResponse(authData, requestData);
-	}
-
-	@Test
-	public void testFullResponse() throws IOException {
-		instance.queryFullResponse(authData, requestData);
-	}
-
+	
 }

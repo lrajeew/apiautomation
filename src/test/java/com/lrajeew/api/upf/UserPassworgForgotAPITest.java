@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.lrajeew.api.BaseAttendeesAPI;
+import com.lrajeew.api.BaseAPI;
 import com.lrajeew.api.all.AttendeeTopicByTopicKeyAPI;
 import com.lrajeew.api.all.AttendeeTopicDeleteAPI;
 import com.lrajeew.api.atus.AttendeeTopicUserStatsAPI;
@@ -22,7 +22,7 @@ import com.lrajeew.util.FileHandler;
 public class UserPassworgForgotAPITest {
 
 	private static Logger LOGGER = Logger.getLogger(UserPassworgForgotAPITest.class);
-	static BaseAttendeesAPI instance ;
+	static BaseAPI instance ;
 	
 	static{
 		instance = UserPassworgForgotAPI.getInstance();

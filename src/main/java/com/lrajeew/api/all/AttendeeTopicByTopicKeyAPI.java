@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
 
 import com.lrajeew.api.Authenticator;
-import com.lrajeew.api.BaseAttendeesAPI;
+import com.lrajeew.api.BaseAPI;
 import com.lrajeew.api.attendee.AttendeeByEmailAPI;
 import com.lrajeew.model.AttendeeRequestVO;
 import com.lrajeew.model.AuthenticationResponseVO;
@@ -18,7 +18,7 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-public class AttendeeTopicByTopicKeyAPI extends BaseAttendeesAPI {
+public class AttendeeTopicByTopicKeyAPI extends BaseAPI {
 	private static AttendeeTopicByTopicKeyAPI apiCall;
 
 	private AttendeeTopicByTopicKeyAPI() {

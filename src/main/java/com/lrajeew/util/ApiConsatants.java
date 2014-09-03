@@ -22,4 +22,7 @@ public interface ApiConsatants {
 	public static final String BLOCK_SIZE = "<blockSize>";
 	public static final String PUT_USER_ID = "put_userId";	
 	
+	public static final String LITE_FILE = "_lite.txt";
+	public static final String DEFAULT_FILE = ".txt";
+	public static final String FULL_FILE = "_full.txt";
 }

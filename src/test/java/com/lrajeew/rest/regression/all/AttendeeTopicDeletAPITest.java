@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.lrajeew.api.BaseAttendeesAPI;
+import com.lrajeew.api.BaseAPI;
 import com.lrajeew.api.all.AttendeeTopicByTopicKeyAPI;
 import com.lrajeew.api.all.AttendeeTopicDeleteAPI;
 import com.lrajeew.model.AttendeeRequestVO;
@@ -19,7 +19,7 @@ import com.lrajeew.util.FileHandler;
 public class AttendeeTopicDeletAPITest {
 
 	private static Logger LOGGER = Logger.getLogger(AttendeeTopicDeletAPITest.class);
-	static BaseAttendeesAPI instance ;
+	static BaseAPI instance ;
 	
 	static{
 		instance = AttendeeTopicDeleteAPI.getInstance();

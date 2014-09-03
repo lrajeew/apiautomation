@@ -7,18 +7,19 @@ import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
 
 import com.lrajeew.api.Authenticator;
-import com.lrajeew.api.BaseAttendeesAPI;
+import com.lrajeew.api.BaseAPI;
 import com.lrajeew.api.attendee.AttendeeByEmailAPI;
 import com.lrajeew.model.AttendeeRequestVO;
 import com.lrajeew.model.AuthenticationResponseVO;
 import com.lrajeew.model.AuthenticationVO;
+import com.lrajeew.model.Info;
 import com.lrajeew.model.ResponseType;
 import com.lrajeew.util.ApiConsatants;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-public class EventEGAPI extends BaseAttendeesAPI {
+public class EventEGAPI extends BaseAPI {
 	private static EventEGAPI apiCall;
 
 	private EventEGAPI() {
@@ -32,7 +33,8 @@ public class EventEGAPI extends BaseAttendeesAPI {
 	}
 
 	private static Logger LOGGER = Logger.getLogger(AttendeeByEmailAPI.class);
-
+	
+	@Info(url="/events/<eventKey>")
 	public ClientResponse query(AuthenticationVO authData,
 			AttendeeRequestVO requestVO, ResponseType responseType)
 			throws IOException {

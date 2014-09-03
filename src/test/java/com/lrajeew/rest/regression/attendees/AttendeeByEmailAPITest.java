@@ -8,10 +8,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.lrajeew.api.attendee.AttendeeByEmailAPI;
-import com.lrajeew.api.attendee.AttendeesByIdAPI;
+import com.lrajeew.json.util.JsonUtil;
 import com.lrajeew.model.AttendeeRequestVO;
 import com.lrajeew.model.AuthenticationVO;
+import com.lrajeew.model.RegressionVO;
+import com.lrajeew.util.ApiConsatants;
 import com.lrajeew.util.FileHandler;
+import com.sun.jersey.api.client.ClientResponse;
 
 public class AttendeeByEmailAPITest {
 
@@ -21,7 +24,8 @@ public class AttendeeByEmailAPITest {
 	private AttendeeRequestVO requestData;
 
 	private static String DATA_FILE = "C:\\DWork\\Data\\AttendeesAPIData.txt";
-	private static String FILE_NAME_PREFIX = "AttendeesAPI";
+	private static String FILE_NAME_PREFIX = "AttendeeByEmailAPITest";
+	String filePath = "";
 
 	private void loadDataFromFile() throws IOException {
 
@@ -40,7 +44,8 @@ public class AttendeeByEmailAPITest {
 				.getProperty(AttendeeRequestVO.USER_ID)));
 		requestData.setEmail(properties
 				.getProperty(AttendeeRequestVO.EMAIL));
-
+		RegressionVO regression = RegressionVO.getInstance();
+		filePath = regression.getRegressionResultsPath()+ FILE_NAME_PREFIX;
 	}
 
 	@Before
@@ -54,18 +59,30 @@ public class AttendeeByEmailAPITest {
 
 	@Test
 	public void testDefultResponse() throws IOException {
-		AttendeeByEmailAPI.getInstance().queryDefaultResponse(authData,
+		ClientResponse response =  AttendeeByEmailAPI.getInstance().queryDefaultResponse(authData,
 				requestData);
+		String responseBody = response.getEntity(String.class);
+		LOGGER.info(responseBody);
+		filePath+= ApiConsatants.DEFAULT_FILE;
+		FileHandler.writeToFile(filePath, JsonUtil.getJsonPrettyString(responseBody));
 	}
 
 	@Test
 	public void testLiteResponse() throws IOException {
-		AttendeeByEmailAPI.getInstance().queryLiteResponse(authData, requestData);
+		ClientResponse response = AttendeeByEmailAPI.getInstance().queryLiteResponse(authData, requestData);
+		String responseBody = response.getEntity(String.class);
+		LOGGER.info(responseBody);
+		filePath+= ApiConsatants.LITE_FILE;
+		FileHandler.writeToFile(filePath, JsonUtil.getJsonPrettyString(responseBody));
 	}
 
 	@Test
 	public void testFullResponse() throws IOException {
-		AttendeeByEmailAPI.getInstance().queryFullResponse(authData, requestData);
+		ClientResponse response = AttendeeByEmailAPI.getInstance().queryFullResponse(authData, requestData);
+		String responseBody = response.getEntity(String.class);
+		LOGGER.info(responseBody);
+		filePath+= ApiConsatants.FULL_FILE;
+		FileHandler.writeToFile(filePath, JsonUtil.getJsonPrettyString(responseBody));
 	}
 
 }

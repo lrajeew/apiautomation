@@ -1,0 +1,26 @@
+{
+  "createTimestamp" : 1317348889000,
+  "updateTimestamp" : 1407274717000,
+  "eventKey" : "vivacon",
+  "eventProfile" : {
+    "eventName" : "vivacon",
+    "description" : "",
+    "registrationUrl" : null,
+    "cityName" : "Hotlanta",
+    "venueName" : "",
+    "start" : {
+      "date" : null
+    },
+    "end" : {
+      "date" : null
+    },
+    "webMenuLogoImgUrl" : "",
+    "webIconImgUrl" : "",
+    "webCoverImgUrl" : "",
+    "mobCoverImgUrl" : "",
+    "mobIconImgUrl" : ""
+  },
+  "eventSpeakers" : [ 2 ],
+  "eventHosts" : [ 47551, 47535, 46685, 2 ],
+  "stream" : 8
+}

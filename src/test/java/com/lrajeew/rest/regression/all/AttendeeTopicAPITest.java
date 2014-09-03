@@ -11,12 +11,15 @@ import org.junit.Test;
 import com.lrajeew.api.all.AttendeeTopicAPI;
 import com.lrajeew.api.attendee.AttendeesDeleteAPI;
 import com.lrajeew.api.attendee.AttendeesPutAPI;
+import com.lrajeew.json.util.JsonUtil;
 import com.lrajeew.model.AttendeeRequestVO;
 import com.lrajeew.model.AuthenticationVO;
 import com.lrajeew.model.ClientAuthenticationVO;
+import com.lrajeew.util.ApiConsatants;
 import com.lrajeew.util.FileHandler;
+import com.sun.jersey.api.client.ClientResponse;
 
-public class AttendeeTopicAPITest {
+public class AttendeeTopicAPITest extends BaseAPITest{
 
 	private static Logger LOGGER = Logger.getLogger(AttendeeTopicAPITest.class);
 
@@ -24,7 +27,7 @@ public class AttendeeTopicAPITest {
 	private AttendeeRequestVO requestData;
 
 	private static String DATA_FILE = "C:\\DWork\\Data\\AttendeesAPIData.txt";
-	private static String FILE_NAME_PREFIX = "AttendeesAPI";
+	private static String FILE_NAME_PREFIX = "AttendeeTopicAPITest";
 
 	private void loadDataFromFile() throws IOException {
 
@@ -51,6 +54,7 @@ public class AttendeeTopicAPITest {
 	public void init() throws IOException {
 		try {
 			loadDataFromFile();
+			filePath += FILE_NAME_PREFIX;
 		} catch (IOException e) {
 			throw e;
 		}
@@ -62,14 +66,14 @@ public class AttendeeTopicAPITest {
 				requestData);
 	}
 
-	@Test
+	@Test @Ignore
 	public void testLiteResponse() throws IOException {
-		AttendeeTopicAPI.getInstance().queryLiteResponse(authData, requestData);
+		saveToFile(AttendeeTopicAPI.getInstance().queryLiteResponse(authData, requestData), ApiConsatants.LITE_FILE);
 	}
 
-	@Test
+	@Test @Ignore
 	public void testFullResponse() throws IOException {
-		AttendeeTopicAPI.getInstance().queryFullResponse(authData, requestData);
+		saveToFile(AttendeeTopicAPI.getInstance().queryFullResponse(authData, requestData), ApiConsatants.FULL_FILE);
 	}
 
 }
