@@ -34,7 +34,7 @@ public class SessionExternalContextSECGLAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = SessionExternalContextSECGLAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 	
 }

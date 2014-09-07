@@ -34,7 +34,7 @@ public class SessionSGLAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = SessionSGLAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 	
 }

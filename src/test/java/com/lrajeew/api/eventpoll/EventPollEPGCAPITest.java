@@ -20,7 +20,7 @@ public class EventPollEPGCAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = EventPollEPGCAPI.getInstance();
 		this.filePath += getClass().getSimpleName();	
-		authData = APIAuthenticatorDataCreator.crateUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createUserAuthenticationVO();
 	}
 	
 }

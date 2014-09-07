@@ -34,7 +34,7 @@ public class SessionSDEAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = SessionSDEAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 	
 	@Override

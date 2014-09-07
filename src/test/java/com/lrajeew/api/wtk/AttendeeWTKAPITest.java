@@ -50,7 +50,7 @@ public class AttendeeWTKAPITest {
 		} catch (IOException e) {
 			throw e;
 		}
-		authData = APIAuthenticatorDataCreator.crateClientAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createClientAuthenticationVO();
 		RegressionVO regression = RegressionVO.getInstance();
 		filePath = regression.getRegressionResultsPath()+ FILE_NAME_PREFIX;
 	}

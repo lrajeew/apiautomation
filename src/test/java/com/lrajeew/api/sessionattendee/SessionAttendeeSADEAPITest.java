@@ -34,7 +34,7 @@ public class SessionAttendeeSADEAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = SessionAttendeeSADEAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateClientAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createClientAuthenticationVO();
 	}
 	
 	@Override

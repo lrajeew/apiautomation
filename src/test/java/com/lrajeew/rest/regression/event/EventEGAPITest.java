@@ -34,7 +34,7 @@ public class EventEGAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = EventEGAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 	
 }

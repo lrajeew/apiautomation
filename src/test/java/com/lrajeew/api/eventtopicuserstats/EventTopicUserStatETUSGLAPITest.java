@@ -34,7 +34,7 @@ public class EventTopicUserStatETUSGLAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = EventTopicUserStatETUSGLAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 	
 }

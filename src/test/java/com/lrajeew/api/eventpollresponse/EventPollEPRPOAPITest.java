@@ -34,7 +34,7 @@ public class EventPollEPRPOAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = EventPollEPRPOAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateClientAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createClientAuthenticationVO();
 	}
 	
 	@Override

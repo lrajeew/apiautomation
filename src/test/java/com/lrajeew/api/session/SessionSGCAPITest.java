@@ -34,7 +34,7 @@ public class SessionSGCAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = SessionSGCAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 	
 }

@@ -34,7 +34,7 @@ public class EventTopicAttendeeETAxGAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = EventTopicAttendeeETAxGAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 	
 }

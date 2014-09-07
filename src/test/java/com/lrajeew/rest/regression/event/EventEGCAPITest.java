@@ -20,7 +20,7 @@ public class EventEGCAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = EventEGCAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 	
 }

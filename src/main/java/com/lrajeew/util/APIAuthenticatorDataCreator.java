@@ -10,7 +10,7 @@ public class APIAuthenticatorDataCreator {
 
 	private static String DATA_FILE = "C:\\DWork\\Data\\AttendeesAPIData.txt";
 
-	public static AuthenticationVO crateSuperUserAuthenticationVO()
+	public static AuthenticationVO createSuperUserAuthenticationVO()
 			throws IOException {
 		AuthenticationVO authData = new AuthenticationVO();
 		Properties properties = FileHandler.readPropertyFile(DATA_FILE);
@@ -25,7 +25,7 @@ public class APIAuthenticatorDataCreator {
 		return authData;
 	}
 
-	public static AuthenticationVO crateUserAuthenticationVO()
+	public static AuthenticationVO createUserAuthenticationVO()
 			throws IOException {
 		AuthenticationVO authData = new AuthenticationVO();
 		Properties properties = FileHandler.readPropertyFile(DATA_FILE);
@@ -39,7 +39,7 @@ public class APIAuthenticatorDataCreator {
 		return authData;
 	}
 
-	public static AuthenticationVO crateClientAuthenticationVO()
+	public static AuthenticationVO createClientAuthenticationVO()
 			throws IOException {
 		AuthenticationVO authData = new AuthenticationVO();
 		Properties properties = FileHandler.readPropertyFile(DATA_FILE);

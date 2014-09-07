@@ -34,7 +34,7 @@ public class SessionSPOTest extends APITest {
 		super.loadDataFromFile();
 		instance = SessionSPO.getInstance();
 		this.filePath += FILE_NAME_PREFIX;
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 
 	@Override

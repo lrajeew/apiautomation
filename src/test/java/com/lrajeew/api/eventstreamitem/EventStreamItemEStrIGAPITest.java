@@ -34,7 +34,7 @@ public class EventStreamItemEStrIGAPITest extends APITest{
 		super.loadDataFromFile();
 		instance = EventStreamItemEStrIGAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
-		authData = APIAuthenticatorDataCreator.crateSuperUserAuthenticationVO();
+		authData = APIAuthenticatorDataCreator.createSuperUserAuthenticationVO();
 	}
 	
 }
