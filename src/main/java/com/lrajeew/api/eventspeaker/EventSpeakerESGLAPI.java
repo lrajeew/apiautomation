@@ -40,7 +40,7 @@ public class EventSpeakerESGLAPI extends BaseAPI {
 			throws IOException {
 		AuthenticationResponseVO authResponse = Authenticator
 				.authenticate(authData);
-		String apiEndpoint = ApiConsatants.VIVA_API + "events/vivacon/speakers?_1409405111866&search=Josh&blockFrom=0&blockSize=20&" + "rep="+responseType.getType();
+		String apiEndpoint = ApiConsatants.VIVA_API + "events/vivacon/speakers?blockFrom=0&blockSize=20&" + "rep="+responseType.getType();
 		Client client = Client.create();
 		WebResource webResource = client.resource(apiEndpoint);
 		ClientResponse response = webResource

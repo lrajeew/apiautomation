@@ -58,18 +58,18 @@ public class UserPassworgForgotAPITest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testDefultResponse() throws IOException {
 		instance.queryDefaultResponse(authData,
 				requestData);
 	}
 
-	@Test
+	//@Test
 	public void testLiteResponse() throws IOException {
 		instance.queryLiteResponse(authData, requestData);
 	}
 
-	@Test
+	//@Test
 	public void testFullResponse() throws IOException {
 		instance.queryFullResponse(authData, requestData);
 	}

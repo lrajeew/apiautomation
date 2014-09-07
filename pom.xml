@@ -64,23 +64,19 @@
 
 		<!-- Hibernate core -->
 		<dependency>
-			<groupId>hibernate</groupId>
-			<artifactId>hibernate3</artifactId>
-			<version>3.2.3.GA</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>3.2.6.ga</version>
 		</dependency>
+
 
 		<!-- Hibernate annotation -->
 		<dependency>
-			<groupId>hibernate-annotations</groupId>
-			<artifactId>hibernate-annotations</artifactId>
-			<version>3.3.0.GA</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			<version>3.2.0.Final</version>
 		</dependency>
 
-		<dependency>
-			<groupId>hibernate-commons-annotations</groupId>
-			<artifactId>hibernate-commons-annotations</artifactId>
-			<version>3.0.0.GA</version>
-		</dependency>
 
 		<!-- Hibernate library dependecy start -->
 		<dependency>
