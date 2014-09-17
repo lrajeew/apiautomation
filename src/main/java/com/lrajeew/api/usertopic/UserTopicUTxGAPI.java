@@ -1,4 +1,4 @@
-﻿package com.lrajeew.api.streamitemcomment;
+﻿package com.lrajeew.api.usertopic;
 
 import java.io.IOException;
 
@@ -19,29 +19,28 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-public class StreamItemCommentStrICPOAPI extends BaseAPI {
-	private static StreamItemCommentStrICPOAPI apiCall;
+public class UserTopicUTxGAPI extends BaseAPI {
+	private static UserTopicUTxGAPI apiCall;
 
-	private StreamItemCommentStrICPOAPI() {
+	private UserTopicUTxGAPI() {
 	}
 
-	public static StreamItemCommentStrICPOAPI getInstance() {
+	public static UserTopicUTxGAPI getInstance() {
 		if (apiCall == null) {
-			apiCall = new StreamItemCommentStrICPOAPI();
+			apiCall = new UserTopicUTxGAPI();
 		}
 		return apiCall;
 	}
 
-	private static Logger LOGGER = Logger.getLogger(StreamItemCommentStrICPOAPI.class);
+	private static Logger LOGGER = Logger.getLogger(UserTopicUTxGAPI.class);
 	
-	@Info(url="/streams/<streamId>/items/<itemUuid>/comments")
+	@Info(url="/users/<userId>/topics/<topicKey>?ctx=true")
 	public ClientResponse query(AuthenticationVO authData,
 			AttendeeRequestVO requestVO, ResponseType responseType)
 			throws IOException {
-			String body ="{\"commentText\":\"API Comment\"}";
 		AuthenticationResponseVO authResponse = Authenticator
 				.authenticate(authData);
-		String apiEndpoint = ApiConsatants.VIVA_API + "streams/8/items/0d211037-813e-4fd0-96c7-4be57bd5690a/comments?"+ "rep="+responseType.getType();
+		String apiEndpoint = ApiConsatants.VIVA_API + "/users/47593/topics/beer?ctx=true&"+ "rep="+responseType.getType();
 		Client client = Client.create();
 		WebResource webResource = client.resource(apiEndpoint);
 		ClientResponse response = webResource
@@ -49,8 +48,7 @@ public class StreamItemCommentStrICPOAPI extends BaseAPI {
 				.header("Authorization",
 						authResponse.getTokenType() + " "
 								+ authResponse.getAccessToken())
-				.header("Content-Type", "application/json")
-				.post(ClientResponse.class, body);
+				.get(ClientResponse.class);
 		return response;
 	}
 

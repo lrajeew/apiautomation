@@ -1,4 +1,4 @@
-﻿package com.lrajeew.api.streamitemcomment;
+﻿package com.lrajeew.api.streamremarks;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -23,16 +23,16 @@ import com.lrajeew.util.ApiConsatants;
 import com.lrajeew.util.FileHandler;
 import com.sun.jersey.api.client.ClientResponse;
 
-public class StreamItemCommentStrICPOAPITest extends APITest{
+public class StreamRemarksStrRPOAPITest extends APITest{
 
-	private static Logger LOGGER = Logger.getLogger(StreamItemCommentStrICPOAPITest.class);
+	private static Logger LOGGER = Logger.getLogger(StreamRemarksStrRPOAPITest.class);
 	
-	private static String FILE_NAME_PREFIX = "StreamItemCommentStrICPOAPI";
+	private static String FILE_NAME_PREFIX = "StreamRemarksStrRPOAPI";
 
 	@Override
 	public void loadDataFromFile() throws IOException {
 		super.loadDataFromFile();
-		instance = StreamItemCommentStrICPOAPI.getInstance();
+		instance = StreamRemarksStrRPOAPI.getInstance();
 		this.filePath += FILE_NAME_PREFIX;	
 		authData = APIAuthenticatorDataCreator.createClientAuthenticationVO();
 	}
@@ -46,5 +46,4 @@ public class StreamItemCommentStrICPOAPITest extends APITest{
 	public void testLiteResponse() throws IOException {
 		// Do nothing
 	}
-	
 }

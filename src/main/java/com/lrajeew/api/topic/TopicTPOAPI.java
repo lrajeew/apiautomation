@@ -1,4 +1,4 @@
-﻿package com.lrajeew.api.streamitemcomment;
+﻿package com.lrajeew.api.topic;
 
 import java.io.IOException;
 
@@ -19,29 +19,29 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-public class StreamItemCommentStrICPOAPI extends BaseAPI {
-	private static StreamItemCommentStrICPOAPI apiCall;
+public class TopicTPOAPI extends BaseAPI {
+	private static TopicTPOAPI apiCall;
 
-	private StreamItemCommentStrICPOAPI() {
+	private TopicTPOAPI() {
 	}
 
-	public static StreamItemCommentStrICPOAPI getInstance() {
+	public static TopicTPOAPI getInstance() {
 		if (apiCall == null) {
-			apiCall = new StreamItemCommentStrICPOAPI();
+			apiCall = new TopicTPOAPI();
 		}
 		return apiCall;
 	}
 
-	private static Logger LOGGER = Logger.getLogger(StreamItemCommentStrICPOAPI.class);
+	private static Logger LOGGER = Logger.getLogger(TopicTPOAPI.class);
 	
-	@Info(url="/streams/<streamId>/items/<itemUuid>/comments")
+	@Info(url="/topics")
 	public ClientResponse query(AuthenticationVO authData,
 			AttendeeRequestVO requestVO, ResponseType responseType)
 			throws IOException {
-			String body ="{\"commentText\":\"API Comment\"}";
+			String body ="{\"topicName\":\"apiTopic1\"}";
 		AuthenticationResponseVO authResponse = Authenticator
 				.authenticate(authData);
-		String apiEndpoint = ApiConsatants.VIVA_API + "streams/8/items/0d211037-813e-4fd0-96c7-4be57bd5690a/comments?"+ "rep="+responseType.getType();
+		String apiEndpoint = ApiConsatants.VIVA_API + "topics?"+ "rep="+responseType.getType();
 		Client client = Client.create();
 		WebResource webResource = client.resource(apiEndpoint);
 		ClientResponse response = webResource
